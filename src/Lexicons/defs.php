@@ -7779,6 +7779,124 @@ return array (
       ),
     ),
   ),
+  'app.bsky.unspecced.getSuggestedUsers' => 
+  array (
+    'lexicon' => 1,
+    'id' => 'app.bsky.unspecced.getSuggestedUsers',
+    'defs' => 
+    array (
+      'main' => 
+      array (
+        'type' => 'query',
+        'description' => 'Get a list of suggested users',
+        'parameters' => 
+        array (
+          'type' => 'params',
+          'properties' => 
+          array (
+            'category' => 
+            array (
+              'type' => 'string',
+              'description' => 'Category of users to get suggestions for.',
+            ),
+            'limit' => 
+            array (
+              'type' => 'integer',
+              'minimum' => 1,
+              'maximum' => 50,
+              'default' => 25,
+            ),
+          ),
+        ),
+        'output' => 
+        array (
+          'encoding' => 'application/json',
+          'schema' => 
+          array (
+            'type' => 'object',
+            'required' => 
+            array (
+              0 => 'actors',
+            ),
+            'properties' => 
+            array (
+              'actors' => 
+              array (
+                'type' => 'array',
+                'items' => 
+                array (
+                  'type' => 'ref',
+                  'ref' => 'lex:app.bsky.actor.defs#profileViewBasic',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
+  'app.bsky.unspecced.getSuggestedUsersSkeleton' => 
+  array (
+    'lexicon' => 1,
+    'id' => 'app.bsky.unspecced.getSuggestedUsersSkeleton',
+    'defs' => 
+    array (
+      'main' => 
+      array (
+        'type' => 'query',
+        'description' => 'Get a skeleton of suggested users. Intended to be called and hydrated by app.bsky.unspecced.getSuggestedUsers',
+        'parameters' => 
+        array (
+          'type' => 'params',
+          'properties' => 
+          array (
+            'viewer' => 
+            array (
+              'type' => 'string',
+              'format' => 'did',
+              'description' => 'DID of the account making the request (not included for public/unauthenticated queries).',
+            ),
+            'category' => 
+            array (
+              'type' => 'string',
+              'description' => 'Category of users to get suggestions for.',
+            ),
+            'limit' => 
+            array (
+              'type' => 'integer',
+              'minimum' => 1,
+              'maximum' => 50,
+              'default' => 25,
+            ),
+          ),
+        ),
+        'output' => 
+        array (
+          'encoding' => 'application/json',
+          'schema' => 
+          array (
+            'type' => 'object',
+            'required' => 
+            array (
+              0 => 'dids',
+            ),
+            'properties' => 
+            array (
+              'dids' => 
+              array (
+                'type' => 'array',
+                'items' => 
+                array (
+                  'type' => 'string',
+                  'format' => 'did',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    ),
+  ),
   'app.bsky.unspecced.getSuggestionsSkeleton' => 
   array (
     'lexicon' => 1,
