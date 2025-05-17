@@ -7799,6 +7799,40 @@ return array (
               array (
                 'type' => 'boolean',
               ),
+              'liveNow' => 
+              array (
+                'type' => 'array',
+                'items' => 
+                array (
+                  'type' => 'ref',
+                  'ref' => 'lex:app.bsky.unspecced.getConfig#liveNowConfig',
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+      'liveNowConfig' => 
+      array (
+        'type' => 'object',
+        'required' => 
+        array (
+          0 => 'did',
+          1 => 'domains',
+        ),
+        'properties' => 
+        array (
+          'did' => 
+          array (
+            'type' => 'string',
+            'format' => 'did',
+          ),
+          'domains' => 
+          array (
+            'type' => 'array',
+            'items' => 
+            array (
+              'type' => 'string',
             ),
           ),
         ),
